@@ -1,14 +1,15 @@
-<div>
+<div class="login-box">
+    <img src="https://raw.githubusercontent.com/FaztWeb/login-form-one/master/img/logo.png" class="avatar" alt="Avatar Image">
+    <h1>Finanzas Personales</h1>
     <form>
-        <span>Ingresar</span>
         <div>
-            <label for="Usuario"></label>
-            <input type="text" placeholder="usuario">
+            <label for="username">Usuario</label>
+            <input type="text" placeholder="Ingresa Usuario">
         </div>
         <div>
-            <label for="Contraseña"></label>
-            <input type="text" class="contraseña">
+            <label for="password">Contraseña</label>
+            <input type="password" placeholder="Ingresa Contraseña">
         </div>
-        <button type="button" (click)="submit()">Ingresar</button>
+        <button (click)="submit()" class="login-btn">Ingresar</button>
     </form>
 </div>
