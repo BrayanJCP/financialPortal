@@ -1,1 +1,35 @@
-<p>income works!</p>
+<div *ngIf="!showForm">
+    <div>
+        <span>Categoria</span>
+        <span>Valor</span>
+        <span>Editar</span>
+        <span>Eliminar</span>
+    </div>
+    <div *ngFor="let income of incomeList; let i = index">
+        <span>{{income.categoria}}</span>
+        <span>{{income.valor}}</span>
+        <span><a (click)="editar(income)">1</a></span>
+        <span><a (click)="eliminar(i)">1</a></span>
+    </div>
+    <a (click)="showForm = true">Agragar Cuenta</a>
+</div>
+<form *ngIf="showForm">
+    <span>Agregar Ingreso</span>
+    <div>
+        <label for="Nombre"></label>
+        <input type="text" name="fecha" [(ngModel)]="ingreso.fecha" placeholder="usuario">
+    </div>
+    <div>
+        <label for="Numero"></label>
+        <input type="text" name="cuenta" [(ngModel)]="ingreso.cuenta" class="contraseña">
+    </div>
+    <div>
+        <label for="Nombre"></label>
+        <input type="text" name="categoria" [(ngModel)]="ingreso.categoria" placeholder="usuario">
+    </div>
+    <div>
+        <label for="Numero"></label>
+        <input type="text" name="valor" [(ngModel)]="ingreso.valor" class="contraseña">
+    </div>
+    <button type="button" (click)="submit()">Ingresar</button>
+</form>

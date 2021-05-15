@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Ingreso } from 'src/app/models/ingreso.model';
 
 @Component({
   selector: 'app-income',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncomeComponent implements OnInit {
 
-  constructor() { }
+  incomeList: Ingreso[];
+  ingreso: Ingreso;
+  showForm: boolean;
+
+  constructor() {
+    this.incomeList = new Array<Ingreso>();
+    this.ingreso = new Ingreso();
+    this.showForm = false;
+  }
 
   ngOnInit() {
+  }
+  
+  submit(){
+    this.incomeList.push(this.ingreso);
+    this.ingreso = new Ingreso();
+    this.showForm = false;
+  }
+  editar(ingreso) {
+    this.ingreso = ingreso;
+    this.showForm = true;
+  }
+  eliminar(index) {
+    this.incomeList.splice(index,1);
   }
 
 }

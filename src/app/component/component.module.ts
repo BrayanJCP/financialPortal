@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AccountComponent } from './account/account.component';
 import { IncomeComponent } from './income/income.component';
 import { ExpenseComponent } from './expense/expense.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,9 @@ import { ExpenseComponent } from './expense/expense.component';
     ExpenseComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     AccountComponent,

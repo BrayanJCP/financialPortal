@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Gasto from 'src/app/models/gasto.model';
 
 @Component({
   selector: 'app-expense',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpenseComponent implements OnInit {
 
-  constructor() { }
+  expenceList: Gasto[];
+  gasto: Gasto;
+  showForm: boolean;
+
+  constructor() {
+    this.expenceList = new Array<Gasto>();
+    this.gasto = new Gasto();
+    this.showForm = false;
+  }
 
   ngOnInit() {
   }
 
+  submit(){
+    this.expenceList.push(this.gasto);
+    this.gasto = new Gasto();
+    this.showForm = false;
+  }
+  editar(gasto) {
+    this.gasto = gasto;
+    this.showForm = true;
+  }
+  eliminar(index) {
+    this.expenceList.splice(index,1);
+  }
 }

@@ -9,10 +9,13 @@ import { ExpenseComponent } from 'src/app/component/expense/expense.component';
 
 
 const routes: Routes = [
-  {path:"", component: DashboardComponent,},
-  {path:"account", component: AccountComponent},
-  {path:"income", component: IncomeComponent},
-  {path:"expense", component: ExpenseComponent},
+  {path:"", component: DashboardComponent,
+    children:[
+      {path:"account", component: AccountComponent},
+      {path:"income", component: IncomeComponent},
+      {path:"expense", component: ExpenseComponent},
+    ]
+  },
 ];
 
 @NgModule({
